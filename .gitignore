@@ -1,0 +1,55 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Output of the Go build tool
+/bin/
+/build/
+/dist/
+*.out
+
+# Go modules and dependency files (keep go.mod and go.sum!)
+/vendor/
+
+# Logs
+*.log
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment/config
+.env
+.env.*
+
+# Test cache and coverage
+*.test
+*.coverprofile
+coverage.out
+
+# Temporary files
+tmp/
+*.tmp
+
+# Static analysis tools
+.golangci.yml
+
+
+# Docker
+docker-compose.override.yml
+.docker/
+
+# DB migrations (e.g., goose or sqlc cache)
+db/migrations/*.tmp
+sqlc.yaml
+sqlc.gen.go
