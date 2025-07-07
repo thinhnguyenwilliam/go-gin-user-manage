@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"log"
 	"net/http"
 	"strconv"
 
@@ -9,10 +10,10 @@ import (
 )
 
 type UserHandler struct {
-	userService *service.UserService
+	userService service.IUserService
 }
 
-func NewUserHandler(userService *service.UserService) *UserHandler {
+func NewUserHandler(userService service.IUserService) *UserHandler {
 	return &UserHandler{
 		userService: userService,
 	}
@@ -55,6 +56,7 @@ func (h *UserHandler) GetUserByID(c *gin.Context) {
 
 // GET /users
 func (h *UserHandler) GetAllUsers(c *gin.Context) {
+	log.Println("User handler is here: GetAllUsers")
 	users := h.userService.GetAllUsers()
 	c.JSON(http.StatusOK, users)
 }

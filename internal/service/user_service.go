@@ -1,15 +1,17 @@
 package service
 
 import (
+	"log"
+
 	"github.com/thinhcompany/user-management-api/internal/models"
 	"github.com/thinhcompany/user-management-api/internal/repository"
 )
 
 type UserService struct {
-	repo *repository.InMemoryUserRepository
+	repo repository.IUserRepository
 }
 
-func NewUserService(repo *repository.InMemoryUserRepository) *UserService {
+func NewUserService(repo repository.IUserRepository) IUserService {
 	return &UserService{
 		repo: repo,
 	}
@@ -29,5 +31,6 @@ func (s *UserService) GetUserByID(id int) (*models.User, bool) {
 }
 
 func (s *UserService) GetAllUsers() []*models.User {
+	log.Println("User Service is here: GetAllUsers")
 	return s.repo.GetAll()
 }

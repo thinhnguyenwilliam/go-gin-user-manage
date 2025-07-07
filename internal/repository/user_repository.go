@@ -1,13 +1,17 @@
 package repository
 
-import "github.com/thinhcompany/user-management-api/internal/models"
+import (
+	"log"
+
+	"github.com/thinhcompany/user-management-api/internal/models"
+)
 
 type InMemoryUserRepository struct {
 	users  map[int]*models.User
 	autoID int
 }
 
-func NewUserRepository() *InMemoryUserRepository {
+func NewUserRepository() IUserRepository {
 	return &InMemoryUserRepository{
 		users:  make(map[int]*models.User),
 		autoID: 1,
@@ -27,6 +31,7 @@ func (repo *InMemoryUserRepository) GetByID(id int) (*models.User, bool) {
 }
 
 func (repo *InMemoryUserRepository) GetAll() []*models.User {
+	log.Println("User Repository is here: GetAllUsers")
 	users := []*models.User{}
 	for _, user := range repo.users {
 		users = append(users, user)

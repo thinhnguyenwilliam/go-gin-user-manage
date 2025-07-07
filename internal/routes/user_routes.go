@@ -20,6 +20,6 @@ func (u *UserRoutes) Register(r *gin.RouterGroup) {
 	{
 		userGroup.POST("/", u.handler.CreateUser)
 		userGroup.GET("/", u.handler.GetAllUsers)
-		userGroup.GET("/:id", u.handler.GetUserByID)
+		userGroup.GET("/:uuid", u.handler.GetUserByID)
 	}
 }
