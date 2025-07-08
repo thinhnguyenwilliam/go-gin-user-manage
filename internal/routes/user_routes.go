@@ -15,11 +15,11 @@ func NewUserRoutes(handler *handler.UserHandler) *UserRoutes {
 	}
 }
 
-func (u *UserRoutes) Register(r *gin.RouterGroup) {
+func RegisterUserRoutes(r *gin.RouterGroup, h *handler.UserHandler) {
 	userGroup := r.Group("/users")
 	{
-		userGroup.POST("/", u.handler.CreateUser)
-		userGroup.GET("/", u.handler.GetAllUsers)
-		userGroup.GET("/:uuid", u.handler.GetUserByID)
+		userGroup.POST("/", h.CreateUser)
+		userGroup.GET("/", h.GetAllUsers)
+		userGroup.GET("/:uuid", h.GetUserByID)
 	}
 }
